@@ -19,7 +19,7 @@ $(LIB)		: $(OBJS)
 			@$(CC) main.c $(LIB) -o $(NAME)
 
 clean:
-			@$(RM) $(OBJS)
+			@$(RM) $(OBJS) main.o
 
 fclean		: clean
 			@$(RM) $(NAME) $(LIB)
