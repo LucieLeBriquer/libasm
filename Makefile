@@ -1,11 +1,11 @@
 CC			= gcc -Wall -Wextra -Werror
 RM			= rm -rf
 NAME		= test
-LIB			= libasm
+LIB			= libasm.a
 NASM		= nasm
 NFLAGS		= -f elf64
 
-SRCS		= ft_strlen.s ft_strcmp.s
+SRCS		= ft_strlen.s ft_strcmp.s ft_strcpy.s
 
 OBJS		= $(SRCS:.s=.o)
 
@@ -14,7 +14,7 @@ OBJS		= $(SRCS:.s=.o)
 
 all			: $(LIB)
 
-$(LIB)		: $(OBJS)
+$(LIB)		: $(OBJS) main.c
 			@ar rcs $(LIB) $(OBJS)
 			@$(CC) main.c $(LIB) -o $(NAME)
 
