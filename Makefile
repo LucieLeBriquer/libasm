@@ -10,7 +10,7 @@ SRCS		= ft_strlen.s ft_strcmp.s
 OBJS		= $(SRCS:.s=.o)
 
 %.o			: %.s
-			$(NASM) $(NFLAGS) $< -o $@
+			@$(NASM) $(NFLAGS) $< -o $@
 
 all			: $(LIB)
 
