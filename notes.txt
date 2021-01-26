@@ -12,3 +12,9 @@ syscall a write :
 	> dans rdx le nombre de characteres
 	> dans rcx un pointeur sur la chaine
 	> dans rbx le file descriptor
+
+
+TODO
+- ft_read : normalement juste un autre num de syscall a mettre dans rax
+- ft_strdup
+- bonus ??
