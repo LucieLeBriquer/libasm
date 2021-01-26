@@ -6,3 +6,9 @@ registres :
 - rdi : adresse du premier argument
 - rsi : adresse du deuxieme argument
 - pour moins de 6 arguments l'ordre est : rdi, rsi, rdx, rcx, r8, r9
+
+syscall a write :
+- il faut mettre dans les bons registres les bonnes informations :
+	> dans rdx le nombre de characteres
+	> dans rcx un pointeur sur la chaine
+	> dans rbx le file descriptor
