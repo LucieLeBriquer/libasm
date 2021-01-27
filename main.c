@@ -1,18 +1,7 @@
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <fcntl.h>
 #define cyan "\033[36m"
 #define cyanB "\033[1;36m"
 #define white "\033[0m"
-
-int		ft_strlen(char *s);
-int		ft_strcmp(char *s1, char *s2);
-char	*ft_strcpy(char *dest, char *src);
-size_t	ft_write(int fd, char *buff, int nb);
-size_t	ft_read(int fd, char *buff, int nb);
-char	*ft_strdup(char *src);
-//int		ft_strdup(char *src);
+#include "libasm.h"
 
 void	printt(char *str)
 {

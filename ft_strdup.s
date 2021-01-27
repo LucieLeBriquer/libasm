@@ -1,5 +1,6 @@
 global ft_strdup
 extern malloc
+extern __errno_location
 extern ft_strlen
 extern ft_strcpy
 
@@ -17,5 +18,9 @@ ft_strdup:
 	ret
 
 error:
+	mov		rbx, rax
+	neg		rbx
+	call	__errno_location
+	mov		[rax], rbx
 	xor		rax, rax		; return (null)
 	ret

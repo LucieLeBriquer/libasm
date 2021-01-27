@@ -1,4 +1,5 @@
 global ft_read
+extern __errno_location
 
 ft_read:
 	mov		rax, 0			; 0 is for sys_read
@@ -8,5 +9,9 @@ ft_read:
 	ret
 
 error:
+	mov		rbx, rax
+	neg		rbx
+	call	__errno_location
+	mov		[rax], rbx
 	mov		rax, -1
 	ret
