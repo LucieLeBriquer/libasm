@@ -7,14 +7,9 @@ registres :
 - rsi : adresse du deuxieme argument
 - pour moins de 6 arguments l'ordre est : rdi, rsi, rdx, rcx, r8, r9
 
-syscall a write :
-- il faut mettre dans les bons registres les bonnes informations :
-	> dans rdx le nombre de characteres
-	> dans rcx un pointeur sur la chaine
-	> dans rbx le file descriptor
-
+syscall a write : mettre 1 dans rax, les arguments sont deja en place
+syscall a read : mettre 0 dans rax, les arguments sont deja en place
 
 TODO
-- ft_read : normalement juste un autre num de syscall a mettre dans rax
 - ft_strdup
 - bonus ??
