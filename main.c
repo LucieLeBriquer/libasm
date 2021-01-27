@@ -12,6 +12,7 @@ char	*ft_strcpy(char *dest, char *src);
 size_t	ft_write(int fd, char *buff, int nb);
 size_t	ft_read(int fd, char *buff, int nb);
 char	*ft_strdup(char *src);
+//int		ft_strdup(char *src);
 
 void	printt(char *str)
 {
@@ -141,6 +142,8 @@ void	test_strdup(void)
 	printf("mine : %s\n", ft_strdup("Hello"));
 	printf("\n");
 }
+
+int		test_alloc(void);
 
 int	main(void)
 {

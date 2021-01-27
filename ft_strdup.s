@@ -1,12 +1,21 @@
 global ft_strdup
-extern malloc, ft_strlen, ft_strcpy
+extern malloc
+extern ft_strlen
+extern ft_strcpy
 
 ft_strdup:
-	call	ft_strlen
-	add		rax, 1
-	mov		rsi, rdi		; save src pointer in rsi
-	mov		rdi, rax
+	call	ft_strlen		; rax = len
+	add		rax, 1			; rax = len + 1
+	mov		rbx, rdi		; rbx = src
+	mov		rdi, rax		; put len in rdi for malloc 
 	call	malloc			; new pointer is in rax
-	mov		rdi, rax
+	test	rax, rax
+	js		error
+	mov		rdi, rax		; rdi = dest
+	mov		rsi, rbx
 	call	ft_strcpy
+	ret
+
+error:
+	xor		rax, rax		; return (null)
 	ret

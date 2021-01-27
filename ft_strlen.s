@@ -1,7 +1,7 @@
 global ft_strlen
 
 ft_strlen:
-	mov		rcx, 0					; i = 0
+	xor		rcx, rcx				; i = 0
 	jmp		loop
 
 loop:
