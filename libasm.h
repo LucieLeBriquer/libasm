@@ -5,7 +5,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 
-int		ft_strlen(char *s);
+size_t	ft_strlen(char *s);
 int		ft_strcmp(char *s1, char *s2);
 char	*ft_strcpy(char *dest, char *src);
 size_t	ft_write(int fd, char *buff, int nb);

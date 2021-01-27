@@ -2,6 +2,7 @@
 #define cyanB "\033[1;36m"
 #define white "\033[0m"
 #include "libasm.h"
+#include <errno.h>
 
 void	printt(char *str)
 {
@@ -19,11 +20,20 @@ void	test_strlen(void)
 
 	printt("STRLEN");
 	s = "Hello world !";
-	printf("orig : [%s], %d\n", s, ft_strlen(s));
-	printf("mine : [%s], %d\n", s, ft_strlen(s));
+	errno = 0;
+	printf("mine : [%s]\tret = %ld", s, ft_strlen(s));
+	printf("\terrno = %d\n", errno);
+	errno = 0;
+	printf("orig : [%s]\tret = %ld", s, strlen(s));
+	printf("\terrno = %d\n", errno);
+
 	s = "";
-	printf("orig : [%s], %d\n", s, ft_strlen(s));
-	printf("mine : [%s], %d\n", s, ft_strlen(s));
+	errno = 0;
+	printf("mine : [%s]\t\tret = %ld", s, ft_strlen(s));
+	printf(" \terrno = %d\n", errno);
+	errno = 0;
+	printf("orig : [%s]\t\tret = %ld", s, strlen(s));
+	printf(" \terrno = %d\n", errno);
 	printf("\n");
 }
 
@@ -35,16 +45,31 @@ void	test_strcmp(void)
 	printt("STRCMP");
 	s = "Hello world !";
 	s2 = "Hell!";
-	printf("mine : [%s], [%s], %d\n", s, s2, ft_strcmp(s, s2));
-	printf("orig : [%s], [%s], %d\n", s, s2, strcmp(s, s2));
+	errno = 0;
+	printf("mine : s1[%s], s2[%s]\tret = %d", s, s2, ft_strcmp(s, s2));
+	printf("\terrno = %d\n", errno);
+	errno = 0;
+	printf("orig : s1[%s], s2[%s]\tret = %d", s, s2, strcmp(s, s2));
+	printf("\terrno = %d\n", errno);
+
 	s = "H";
 	s2 = "Hello";
-	printf("mine : [%s], [%s], %d\n", s, s2, ft_strcmp(s, s2));
-	printf("orig : [%s], [%s], %d\n", s, s2, strcmp(s, s2));
+	errno = 0;
+	printf("mine : s1[%s], s2[%s]\t\t\tret = %d", s, s2, ft_strcmp(s, s2));
+	printf("\terrno = %d\n", errno);
+	errno = 0;
+	printf("orig : s1[%s], s2[%s]\t\t\tret = %d", s, s2, strcmp(s, s2));
+	printf("\terrno = %d\n", errno);
+
 	s = "Hello";
 	s2 = "Hello";
-	printf("mine : [%s], [%s], %d\n", s, s2, ft_strcmp(s, s2));
-	printf("orig : [%s], [%s], %d\n", s, s2, strcmp(s, s2));
+	errno = 0;
+	printf("mine : s1[%s], s2[%s]\t\tret = %d", s, s2, ft_strcmp(s, s2));
+	printf("\t\terrno = %d\n", errno);
+	errno = 0;
+	printf("orig : s1[%s], s2[%s]\t\tret = %d", s, s2, strcmp(s, s2));
+	printf("\t\terrno = %d\n", errno);
+
 	printf("\n");
 }
 
@@ -55,12 +80,21 @@ void	test_strcpy(void)
 	char *src;
 
 	printt("STRCPY");
-	src = "Bonjour bonjour";
-	printf("orig : src[%s], dest[%s]\n", src, strcpy(dest, src));
-	printf("mine : src[%s], dest[%s]\n", src, ft_strcpy(dest2, src));
+	src = "Hello world!";
+	errno = 0;
+	printf("orig : src[%s], dest[%s]", src, strcpy(dest, src));
+	printf("\terrno = %d\n", errno);
+	errno = 0;
+	printf("mine : src[%s], dest[%s]", src, ft_strcpy(dest2, src));
+	printf("\terrno = %d\n", errno);
+
 	src = "";
-	printf("orig : src[%s], dest[%s]\n", src, strcpy(dest, src));
-	printf("mine : src[%s], dest[%s]\n", src, ft_strcpy(dest2, src));
+	errno = 0;
+	printf("orig : src[%s], dest[%s]", src, strcpy(dest, src));
+	printf("\t\t\t\terrno = %d\n", errno);
+	errno = 0;
+	printf("mine : src[%s], dest[%s]", src, ft_strcpy(dest2, src));
+	printf("\t\t\t\terrno = %d\n", errno);
 	printf("\n");
 }
 
@@ -71,17 +105,36 @@ void	test_write(void)
 	printt("WRITE ");
 	printst("write(1, s, len(s))");
 	s = "Hello world!";
-	printf("\t%ld\n", ft_write(1, s, ft_strlen(s)));
-	printf("\t%ld\n", write(1, s, ft_strlen(s)));
+	errno = 0;
+	printf("|\tret = %ld", ft_write(1, s, ft_strlen(s)));
+	printf("\terrno = %d\n", errno);
+	errno = 0;
+	printf("|\tret = %ld", write(1, s, ft_strlen(s)));
+	printf("\terrno = %d\n", errno);
+
 	printst("write on wrong file descriptor");
-	printf("\t%ld\n", ft_write(4, s, ft_strlen(s)));
-	printf("\t%ld\n", write(4, s, ft_strlen(s)));
+	errno = 0;
+	printf("|ret = %ld", ft_write(4, s, ft_strlen(s)));
+	printf("\terrno = %d\n", errno);
+	errno = 0;
+	printf("|ret = %ld", write(4, s, ft_strlen(s)));
+	printf("\terrno = %d\n", errno);
+
 	printst("write only a part of the string");
-	printf("\t%ld\n", ft_write(1, s, 4));
-	printf("\t%ld\n", write(1, s, 4));
+	errno = 0;
+	printf("|\t ret = %ld", ft_write(1, s, 4));
+	printf("\terrno = %d\n", errno);
+	errno = 0;
+	printf("|\t ret = %ld", write(1, s, 4));
+	printf("\terrno = %d\n", errno);
+
 	printst("overwriting");
-	printf("\t%ld\n", ft_write(1, s, 20));
-	printf("\t%ld\n", write(1, s, 20));
+	errno = 0;
+	printf("|\tret = %ld", ft_write(1, s, 20));
+	printf("\terrno = %d\n", errno);
+	errno = 0;
+	printf("|\tret = %ld", write(1, s, 20));
+	printf("\terrno = %d\n", errno);
 	printf("\n");
 }
 
@@ -89,38 +142,45 @@ void	test_read(void)
 {
 	char	buff[300];
 	int		fd;
+	int		res;
 
 	printt("READ");
+
 	printst("read(fd, buff, 10 < file_size)");
-	fd = open("to_read.txt", O_RDONLY);
 	buff[10] = '\0';
-	printf("mine : %ld", ft_read(fd, buff, 10));
-	printf("\t[%s]\n", buff);
+	fd = open("to_read.txt", O_RDONLY);
+	errno = 0;
+	res = ft_read(fd, buff, 10);
+	printf("mine : [%s]\tret = %d\terrno = %d\n", buff, res, errno);
 	close(fd);
 	fd = open("to_read.txt", O_RDONLY);
-	printf("orig : %ld", read(fd, buff, 10));
-	printf("\t[%s]\n", buff);
+	errno = 0;
+	res = read(fd, buff, 10);
+	printf("orig : [%s]\tret = %d\terrno = %d\n", buff, res, errno);
 	close(fd);
+
 	printst("read on wrong fd");
 	buff[0] = '\0';
-	printf("mine : %ld", ft_read(fd + 1, buff, 10));
-	printf("\t[%s]\n", buff);
-	close(fd);
-	fd = open("to_read.txt", O_RDONLY);
-	buff[10] = '\0';
-	printf("orig : %ld", read(fd + 1, buff, 10));
-	printf("\t[%s]\n", buff);
-	close(fd);
+	errno = 0;
+	res = ft_read(-1, buff, 10);
+	printf("mine : [%s]\tret = %d\terrno = %d\n", buff, res, errno);
+	errno = 0;
+	res = read(-1, buff, 10);
+	printf("orig : [%s]\tret = %d\terrno = %d\n", buff, res, errno);
+
 	printst("read(fd, buff, 200 > file_size)");
-	fd = open("to_read.txt", O_RDONLY);
 	buff[200] = '\0';
-	printf("mine : %ld", ft_read(fd, buff, 200));
-	printf("\t[%s]\n", buff);
-	close(fd);
 	fd = open("to_read.txt", O_RDONLY);
-	printf("orig : %ld", read(fd, buff, 200));
-	printf("\t[%s]\n", buff);
+	errno = 0;
+	res = ft_read(fd, buff, 200);
+	printf("mine : [%s]\n\tret = %d\terrno = %d\n", buff, res, errno);
 	close(fd);
+	errno = 0;
+	fd = open("to_read.txt", O_RDONLY);
+	res = read(fd, buff, 200);
+	printf("orig : [%s]\n\tret = %d\terrno = %d\n", buff, res, errno);
+	close(fd);
+
 	printf("\n");
 }
 
@@ -131,8 +191,6 @@ void	test_strdup(void)
 	printf("mine : %s\n", ft_strdup("Hello"));
 	printf("\n");
 }
-
-int		test_alloc(void);
 
 int	main(void)
 {
