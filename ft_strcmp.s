@@ -1,8 +1,8 @@
 global ft_strcmp
 
 ft_strcmp:
-	xor		rcx, rcx	; i = 0
-	xor		rax, rax	; res = 0
+	mov		rcx, 0		; i = 0
+	mov		rax, 0		; res = 0
 	jmp		loop
 
 loop:

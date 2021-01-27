@@ -1,14 +1,15 @@
 global ft_strlen
 
 ft_strlen:
-	mov		rax, 0
+	mov		rcx, 0					; i = 0
 	jmp		loop
 
 loop:
-	cmp		byte [rdi + rax], 0
+	cmp		byte [rdi + rcx], 0		; s[i] neq 0
 	je		exit
-	inc		rax
+	inc		rcx						; i++
 	jmp		loop
 
 exit:
+	mov		rax, rcx				; return (i)
 	ret

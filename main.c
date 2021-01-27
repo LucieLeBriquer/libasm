@@ -11,6 +11,7 @@ int		ft_strcmp(char *s1, char *s2);
 char	*ft_strcpy(char *dest, char *src);
 size_t	ft_write(int fd, char *buff, int nb);
 size_t	ft_read(int fd, char *buff, int nb);
+char	*ft_strdup(char *src);
 
 void	printt(char *str)
 {
@@ -133,6 +134,14 @@ void	test_read(void)
 	printf("\n");
 }
 
+void	test_strdup(void)
+{
+	printt("STRDUP");
+	printf("orig : %s\n", strdup("Hello"));
+	printf("mine : %s\n", ft_strdup("Hello"));
+	printf("\n");
+}
+
 int	main(void)
 {
 	test_strlen();
@@ -140,5 +149,6 @@ int	main(void)
 	test_strcpy();
 	test_write();
 	test_read();
+	test_strdup();
 	return (0);
 }
