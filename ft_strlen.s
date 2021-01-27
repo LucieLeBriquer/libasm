@@ -1,6 +1,7 @@
 global ft_strlen
 
 ft_strlen:
+	push	rcx
 	xor		rcx, rcx				; i = 0
 	jmp		loop
 
@@ -12,4 +13,5 @@ loop:
 
 exit:
 	mov		rax, rcx				; return (i)
+	pop		rcx
 	ret

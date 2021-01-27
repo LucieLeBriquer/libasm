@@ -1,7 +1,9 @@
 global ft_strcpy
 
 ft_strcpy:
-	mov		rcx, 0					; i = 0
+	push	rcx
+	push	rdx
+	xor		rcx, rcx				; i = 0
 	jmp		loop
 
 loop:
@@ -15,4 +17,6 @@ loop:
 exit:
 	mov		byte [rdi + rcx], 0		; dest[i] = '\0'
 	mov		rax, rdi			; strcpy return dest
+	pop		rdx
+	pop		rcx
 	ret

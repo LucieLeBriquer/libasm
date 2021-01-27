@@ -1,12 +1,14 @@
 global ft_strcmp
 
 ft_strcmp:
+	push	rcx
+	push	rbx
 	xor		rcx, rcx				; i = 0
 	xor		rax, rax				; res = 0
 	jmp		loop
 
 loop:
-	mov		al, byte [rdi + rcx]	; dl <- s1[i]
+	mov		al, byte [rdi + rcx]	; al <- s1[i]
 	mov		bl, byte [rsi + rcx]	; bl <- s2[i]
 	cmp		al, 0
 	je		exit
@@ -21,4 +23,6 @@ exit:
 	movzx	rbx, bl
 	movzx	rax, al
 	sub		rax, rbx
+	pop		rbx
+	pop		rcx
 	ret
