@@ -14,7 +14,7 @@ ft_strdup:
 	mov		rdi, rax			; put len in rdi for malloc 
 	call	malloc wrt ..plt
 	test	rax, rax
-	js		error
+	js		error_dup
 	mov		rdi, rax			; rdi = dest
 	mov		rsi, rbx
 	call	ft_strcpy
@@ -23,7 +23,7 @@ ft_strdup:
 	pop		rbx
 	ret
 
-error:
+error_dup:
 	mov		rbx, rax
 	neg		rbx
 	call	__errno_location wrt ..plt
