@@ -13,7 +13,7 @@ ft_read:
 error:
 	mov		rbx, rax
 	neg		rbx
-	call	__errno_location
+	call	__errno_location wrt ..plt
 	mov		[rax], rbx
 	mov		rax, -1
 	pop		rbx

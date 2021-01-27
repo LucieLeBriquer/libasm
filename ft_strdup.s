@@ -8,14 +8,14 @@ ft_strdup:
 	push	rbx
 	push	rdi
 	push	rsi
-	call	ft_strlen		; rax = len
-	add		rax, 1			; rax = len + 1
-	mov		rbx, rdi		; rbx = src
-	mov		rdi, rax		; put len in rdi for malloc 
-	call	malloc			; new pointer is in rax
+	call	ft_strlen			; rax = len
+	add		rax, 1				; rax = len + 1
+	mov		rbx, rdi			; rbx = src
+	mov		rdi, rax			; put len in rdi for malloc 
+	call	malloc wrt ..plt
 	test	rax, rax
 	js		error
-	mov		rdi, rax		; rdi = dest
+	mov		rdi, rax			; rdi = dest
 	mov		rsi, rbx
 	call	ft_strcpy
 	pop		rsi
@@ -26,9 +26,9 @@ ft_strdup:
 error:
 	mov		rbx, rax
 	neg		rbx
-	call	__errno_location
+	call	__errno_location wrt ..plt
 	mov		[rax], rbx
-	xor		rax, rax		; return (null)
+	xor		rax, rax			; return (null)
 	pop		rsi
 	pop		rdi
 	pop		rbx

@@ -1,4 +1,4 @@
-CC			= gcc -Wall -Wextra -Werror -no-pie
+CC			= gcc -Wall -Wextra -Werror
 RM			= rm -rf
 NAME		= test
 LIB			= libasm.a
