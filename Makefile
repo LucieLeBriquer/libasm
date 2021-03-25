@@ -5,8 +5,8 @@ LIB			= libasm.a
 NASM		= nasm
 NFLAGS		= -f elf64
 
-SRCS		= ft_strlen.s ft_strcmp.s ft_strcpy.s ft_write.s ft_read.s \
-			ft_strdup.s
+SRCS		= $(addprefix sources/, ft_strlen.s ft_strcmp.s ft_strcpy.s ft_write.s\
+			ft_read.s ft_strdup.s ft_list_size_bonus.s)
 
 OBJS		= $(SRCS:.s=.o)
 
@@ -15,8 +15,10 @@ OBJS		= $(SRCS:.s=.o)
 
 all			: $(LIB)
 
-$(LIB)		: $(OBJS) main.c
+$(LIB)		: $(OBJS)
 			@ar rcs $(LIB) $(OBJS)
+
+$(NAME)		: main.c
 			@$(CC) main.c $(LIB) -o $(NAME)
 
 clean:

@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/25 20:42:33 by lle-briq          #+#    #+#             */
+/*   Updated: 2021/03/25 20:42:34 by lle-briq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #define cyan "\033[36m"
 #define cyanB "\033[1;36m"
 #define white "\033[0m"
 #include "libasm.h"
 #include <errno.h>
+#include <stdlib.h>
 
 void	printt(char *str)
 {
@@ -192,6 +205,36 @@ void	test_strdup(void)
 	printf("\n");
 }
 
+t_list	*lstnew(void *content)
+{
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->data = content;
+	new->next = NULL;
+	return (new);
+}
+
+void	add_front(t_list **alst, t_list *new)
+{
+	new->next = *alst;
+	*alst = new;
+}
+
+void	test_list_size(void)
+{
+	t_list	*begin;
+
+	begin = NULL;
+	add_front(&begin, lstnew("1"));
+	add_front(&begin, lstnew("2"));
+	add_front(&begin, lstnew("3"));
+	printt("LIST_SIZE");
+	printf("size : %d\n", ft_list_size(begin));
+}
+
 int	main(void)
 {
 	test_strlen();
@@ -200,5 +243,6 @@ int	main(void)
 	test_write();
 	test_read();
 	test_strdup();
+	test_list_size();
 	return (0);
 }
