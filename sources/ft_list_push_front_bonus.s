@@ -11,7 +11,7 @@ ft_list_push_front:							; void	fun(t_list **begin, void *data)
 	call	malloc wrt ..plt				; malloc sizeof(t_list)=16
 	pop		rsi
 	pop		rdi
-	test	rax, rax
+	test	rax, rax						; if (new == NULL)
 	js		error_alloc
 	mov		[rax], rsi						; new->data = data
 	mov		rcx, [rdi]						; save = *begin
