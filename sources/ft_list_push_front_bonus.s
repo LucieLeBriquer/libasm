@@ -26,3 +26,4 @@ error_alloc:
 	call	__errno_location wrt ..plt
 	mov		[rax], rbx
 	pop		rcx
+	ret
