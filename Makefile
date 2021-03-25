@@ -7,18 +7,31 @@ TEST_OUT	= tests
 TEST_FILE	= test/main.c
 INCS_DIR	= includes/
 
-SRCS		= $(addprefix sources/, ft_strlen.s ft_strcmp.s ft_strcpy.s ft_write.s\
-			ft_read.s ft_strdup.s ft_list_size_bonus.s ft_list_push_front_bonus.s)
+SRCS		= $(addprefix sources/,\
+			ft_strlen.s\
+			ft_strcmp.s\
+			ft_strcpy.s\
+			ft_write.s\
+			ft_read.s\
+			ft_strdup.s)
+
+BONUS		= $(addprefix sources/,\
+			ft_list_size_bonus.s\
+			ft_list_push_front_bonus.s\
+			ft_list_sort_bonus.s\
+			ft_list_remove_if_bonus.s\
+			ft_atoi_base_bonus.s)
 
 OBJS		= $(SRCS:.s=.o)
+BONUS_OBJS	= $(BONUS:.s=.o)
 
 %.o			: %.s
 			@$(NASM) $(NFLAGS) -I$(INCS_DIR) $< -o $@
 
 all			: $(LIB)
 
-$(LIB)		: $(OBJS)
-			@ar rcs $(LIB) $(OBJS)
+$(LIB)		: $(OBJS) $(BONUS_OBJS)
+			@ar rcs $(LIB) $(OBJS) $(BONUS_OBJS)
 
 test		: $(TEST_FILE) $(LIB)
 			@$(CC) $(TEST_FILE) $(LIB) -I$(INCS_DIR) -o $(TEST_OUT)
