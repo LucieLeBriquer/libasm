@@ -7,9 +7,9 @@ registres :
 - rsi : adresse du deuxieme argument
 - pour moins de 6 arguments l'ordre est : rdi, rsi, rdx, rcx, r8, r9
 
+rax se decompose en :
+|        eax        |    ax   | ah | al |
+
 syscall a write : mettre 1 dans rax, les arguments sont deja en place
 syscall a read : mettre 0 dans rax, les arguments sont deja en place
-
-TODO
-- ft_strdup
-- bonus ??
+__errno_location est l'equivalent de ___error sur linux
