@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 20:42:33 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/03/25 20:58:14 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/03/25 21:31:22 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,34 +224,16 @@ void	free_lst(t_list *begin)
 	}
 }
 
-t_list	*lstnew(void *content)
-{
-	t_list	*new;
-
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->data = content;
-	new->next = NULL;
-	return (new);
-}
-
-void	add_front(t_list **alst, t_list *new)
-{
-	new->next = *alst;
-	*alst = new;
-}
-
 void	test_list_size(void)
 {
 	t_list	*begin;
 
-	printt("LIST_SIZE");
+	printt("LIST_SIZE AND PUSH_FRONT");
 	printst("list_size(1->2->3->NULL)");
 	begin = NULL;
-	add_front(&begin, lstnew("1"));
-	add_front(&begin, lstnew("2"));
-	add_front(&begin, lstnew("3"));
+	ft_list_push_front(&begin, "1");
+	ft_list_push_front(&begin, "2");
+	ft_list_push_front(&begin, "3");
 	printf("size : %d\n", ft_list_size(begin));
 	free_lst(begin);
 	printst("list_size(NULL)");
@@ -260,7 +242,7 @@ void	test_list_size(void)
 	free_lst(begin);
 	printst("list_size(1->NULL)");
 	begin = NULL;
-	add_front(&begin, lstnew("1"));
+	ft_list_push_front(&begin, "1");
 	printf("size : %d\n", ft_list_size(begin));
 	free_lst(begin);
 }

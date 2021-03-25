@@ -18,5 +18,6 @@ size_t	ft_write(int fd, char *buff, int nb);
 size_t	ft_read(int fd, char *buff, int nb);
 char	*ft_strdup(char *src);
 int		ft_list_size(t_list *begin);
+void	ft_list_push_front(t_list **begin, void *data);
 
 #endif
