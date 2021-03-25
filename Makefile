@@ -3,7 +3,7 @@ RM			= rm -rf
 LIB			= libasm.a
 NASM		= nasm
 NFLAGS		= -f elf64
-TEST_OUT	= test
+TEST_OUT	= tests
 TEST_FILE	= main.c
 
 SRCS		= $(addprefix sources/, ft_strlen.s ft_strcmp.s ft_strcpy.s ft_write.s\
@@ -19,7 +19,7 @@ all			: $(LIB)
 $(LIB)		: $(OBJS)
 			@ar rcs $(LIB) $(OBJS)
 
-$(NAME)		: $(TEST_FILE) $(LIB)
+test		: $(TEST_FILE) $(LIB)
 			@$(CC) $(TEST_FILE) $(LIB) -o $(TEST_OUT)
 
 clean:
