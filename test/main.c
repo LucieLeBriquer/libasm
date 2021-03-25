@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 20:42:33 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/03/25 20:48:08 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/03/25 20:58:14 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,10 +199,29 @@ void	test_read(void)
 
 void	test_strdup(void)
 {
+	char	*str1;
+	char	*str2;
+
 	printt("STRDUP");
-	printf("orig : %s\n", strdup("Hello"));
-	printf("mine : %s\n", ft_strdup("Hello"));
+	str1 = strdup("Hello");
+	printf("orig : %s\n", str1);
+	str2 = ft_strdup("Hello");
+	printf("mine : %s\n", str2);
+	free(str1);
+	free(str2);
 	printf("\n");
+}
+
+void	free_lst(t_list *begin)
+{
+	t_list	*save;
+
+	while (begin)
+	{
+		save = begin->next;
+		free(begin);
+		begin = save;
+	}
 }
 
 t_list	*lstnew(void *content)
@@ -227,12 +246,23 @@ void	test_list_size(void)
 {
 	t_list	*begin;
 
+	printt("LIST_SIZE");
+	printst("list_size(1->2->3->NULL)");
 	begin = NULL;
 	add_front(&begin, lstnew("1"));
 	add_front(&begin, lstnew("2"));
 	add_front(&begin, lstnew("3"));
-	printt("LIST_SIZE");
 	printf("size : %d\n", ft_list_size(begin));
+	free_lst(begin);
+	printst("list_size(NULL)");
+	begin = NULL;
+	printf("size : %d\n", ft_list_size(begin));
+	free_lst(begin);
+	printst("list_size(1->NULL)");
+	begin = NULL;
+	add_front(&begin, lstnew("1"));
+	printf("size : %d\n", ft_list_size(begin));
+	free_lst(begin);
 }
 
 int	main(void)
