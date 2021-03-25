@@ -4,7 +4,8 @@ LIB			= libasm.a
 NASM		= nasm
 NFLAGS		= -f elf64
 TEST_OUT	= tests
-TEST_FILE	= main.c
+TEST_FILE	= test/main.c
+INCS_DIR	= includes/
 
 SRCS		= $(addprefix sources/, ft_strlen.s ft_strcmp.s ft_strcpy.s ft_write.s\
 			ft_read.s ft_strdup.s ft_list_size_bonus.s)
@@ -12,7 +13,7 @@ SRCS		= $(addprefix sources/, ft_strlen.s ft_strcmp.s ft_strcpy.s ft_write.s\
 OBJS		= $(SRCS:.s=.o)
 
 %.o			: %.s
-			@$(NASM) $(NFLAGS) $< -o $@
+			@$(NASM) $(NFLAGS) -I$(INCS_DIR) $< -o $@
 
 all			: $(LIB)
 
@@ -20,7 +21,7 @@ $(LIB)		: $(OBJS)
 			@ar rcs $(LIB) $(OBJS)
 
 test		: $(TEST_FILE) $(LIB)
-			@$(CC) $(TEST_FILE) $(LIB) -o $(TEST_OUT)
+			@$(CC) $(TEST_FILE) $(LIB) -I$(INCS_DIR) -o $(TEST_OUT)
 
 clean:
 			@$(RM) $(OBJS)
@@ -30,4 +31,4 @@ fclean		: clean
 
 re			: fclean all
 
-.PHONY		: all clean fclean re
+.PHONY		: all clean fclean re test

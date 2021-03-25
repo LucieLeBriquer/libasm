@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 20:42:33 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/03/25 20:42:34 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/03/25 20:48:08 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,12 +161,12 @@ void	test_read(void)
 
 	printst("read(fd, buff, 10 < file_size)");
 	buff[10] = '\0';
-	fd = open("to_read.txt", O_RDONLY);
+	fd = open("test/to_read.txt", O_RDONLY);
 	errno = 0;
 	res = ft_read(fd, buff, 10);
 	printf("mine : [%s]\tret = %d\terrno = %d\n", buff, res, errno);
 	close(fd);
-	fd = open("to_read.txt", O_RDONLY);
+	fd = open("test/to_read.txt", O_RDONLY);
 	errno = 0;
 	res = read(fd, buff, 10);
 	printf("orig : [%s]\tret = %d\terrno = %d\n", buff, res, errno);
@@ -183,13 +183,13 @@ void	test_read(void)
 
 	printst("read(fd, buff, 200 > file_size)");
 	buff[200] = '\0';
-	fd = open("to_read.txt", O_RDONLY);
+	fd = open("test/to_read.txt", O_RDONLY);
 	errno = 0;
 	res = ft_read(fd, buff, 200);
 	printf("mine : [%s]\n\tret = %d\terrno = %d\n", buff, res, errno);
 	close(fd);
 	errno = 0;
-	fd = open("to_read.txt", O_RDONLY);
+	fd = open("test/to_read.txt", O_RDONLY);
 	res = read(fd, buff, 200);
 	printf("orig : [%s]\n\tret = %d\terrno = %d\n", buff, res, errno);
 	close(fd);
