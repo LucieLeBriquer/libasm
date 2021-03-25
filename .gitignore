@@ -3,3 +3,4 @@ tests
 libasm.a
 *.swp
 *.gch
+todo/*
