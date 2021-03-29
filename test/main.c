@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 20:42:33 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/03/25 21:31:22 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/03/29 21:18:40 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -247,6 +247,12 @@ void	test_list_size(void)
 	free_lst(begin);
 }
 
+void	test_atoi_base(void)
+{
+	printt("ATOI_BASE");
+	printf("res : %d\n", ft_atoi_base("19", "0123456789"));
+}
+
 int	main(void)
 {
 	test_strlen();
@@ -256,5 +262,6 @@ int	main(void)
 	test_read();
 	test_strdup();
 	test_list_size();
+	test_atoi_base();
 	return (0);
 }
