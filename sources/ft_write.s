@@ -12,8 +12,8 @@ error_write:
 	push	rbx
 	mov		rbx, rax
 	neg		rbx
-	call	__errno_location			; put in rax the location of errno
-	mov		[rax], rbx					; put the sys_error in errno
+	call	__errno_location wrt ..plt		; put in rax the location of errno
+	mov		[rax], rbx						; put the sys_error in errno
 	mov		rax, -1
 	pop		rbx
 	ret
