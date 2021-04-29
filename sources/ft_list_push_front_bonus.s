@@ -21,9 +21,5 @@ ft_list_push_front:							; void	fun(t_list **begin, void *data)
 	ret
 
 error_alloc:
-	mov		rbx, rax
-	neg		rbx
-	call	__errno_location wrt ..plt
-	mov		[rax], rbx
 	pop		rcx
 	ret

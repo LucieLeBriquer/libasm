@@ -24,10 +24,6 @@ ft_strdup:
 	ret
 
 error_dup:
-	mov		rbx, rax
-	neg		rbx
-	call	__errno_location wrt ..plt
-	mov		[rax], rbx
 	xor		rax, rax			; return (null)
 	pop		rsi
 	pop		rdi
