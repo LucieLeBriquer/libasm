@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 20:42:33 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/03/29 21:18:40 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/04/29 15:14:28 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	test_strlen(void)
 	char *s;
 
 	printt("STRLEN");
-	s = "Hello world !";
+	s = "Lucie";
 	errno = 0;
 	printf("mine : [%s]\tret = %ld", s, ft_strlen(s));
 	printf("\terrno = %d\n", errno);
@@ -82,7 +82,7 @@ void	test_strcmp(void)
 	errno = 0;
 	printf("orig : s1[%s], s2[%s]\t\tret = %d", s, s2, strcmp(s, s2));
 	printf("\t\terrno = %d\n", errno);
-
+	
 	printf("\n");
 }
 
@@ -147,6 +147,15 @@ void	test_write(void)
 	printf("\terrno = %d\n", errno);
 	errno = 0;
 	printf("|\tret = %ld", write(1, s, 20));
+	printf("\terrno = %d\n", errno);
+	printf("\n");
+	
+	printst("NULL string");
+	errno = 0;
+	printf("|\tret = %ld", ft_write(1, NULL, 20));
+	printf("\terrno = %d\n", errno);
+	errno = 0;
+	printf("|\tret = %ld", write(1, NULL, 20));
 	printf("\terrno = %d\n", errno);
 	printf("\n");
 }
@@ -262,6 +271,6 @@ int	main(void)
 	test_read();
 	test_strdup();
 	test_list_size();
-	test_atoi_base();
+	//	test_atoi_base();
 	return (0);
 }
