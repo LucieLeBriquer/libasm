@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 00:56:46 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/05/01 00:57:20 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/05/01 01:14:59 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	test_strcpy(void)
 	errno = 0;
 	printf("orig : dest[%s]", strcpy(dest, src));
 	printf("\terrno = %d\n", errno);
-
 	src = "";
 	printst("strcpy(\"\", dest)");
 	errno = 0;

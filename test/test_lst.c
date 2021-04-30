@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_lst.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/01 00:59:54 by lle-briq          #+#    #+#             */
+/*   Updated: 2021/05/01 01:13:50 by lle-briq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "tester.h"
 
 void	free_lst(t_list *begin)
@@ -35,7 +47,7 @@ void	test_list_size(void)
 	free_lst(begin);
 }
 
-int	cmp(char *str1, char *str2)
+int		cmp(char *str1, char *str2)
 {
 	if (str1[0] >= str2[0])
 		return (1);
@@ -50,6 +62,7 @@ void	free_fct(void *data)
 void	test_list_remove_if(void)
 {
 	t_list	*begin;
+	void	*p;
 
 	printt("LIST_REMOVE_IF");
 	printst("list_remove_if(1->2->3->NULL)");
@@ -57,7 +70,7 @@ void	test_list_remove_if(void)
 	ft_list_push_front(&begin, "1");
 	ft_list_push_front(&begin, "2");
 	ft_list_push_front(&begin, "3");
-	void *p = ft_list_remove_if(&begin, "2", &cmp, &free_fct);
+	p = ft_list_remove_if(&begin, "2", &cmp, &free_fct);
 	printf("curr->data : %p\n", p);
-//	free_lst(begin);
+	free_lst(begin);
 }

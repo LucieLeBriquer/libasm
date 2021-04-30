@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_strcmp.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/01 01:04:45 by lle-briq          #+#    #+#             */
+/*   Updated: 2021/05/01 01:14:14 by lle-briq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "tester.h"
 
-void	test_strcmp(void)
+static void	test_strcmp1(void)
 {
 	char *s;
 	char *s2;
 
-	printt("STRCMP");
 	printst("strcmp(\"Hello world !\", \"Hell!\")");
 	s = "Hello world !";
 	s2 = "Hell!";
@@ -15,6 +26,12 @@ void	test_strcmp(void)
 	errno = 0;
 	printf("orig : %d", strcmp(s, s2));
 	printf("\terrno = %d\n", errno);
+}
+
+static void	test_strcmp2(void)
+{
+	char *s;
+	char *s2;
 
 	printst("strcmp(\"H\", \"Hello\")");
 	s = "H";
@@ -25,7 +42,16 @@ void	test_strcmp(void)
 	errno = 0;
 	printf("orig : %d", strcmp(s, s2));
 	printf("\terrno = %d\n", errno);
+}
 
+void		test_strcmp(void)
+{
+	char *s;
+	char *s2;
+
+	printt("STRCMP");
+	test_strcmp1();
+	test_strcmp2();
 	printst("strcmp(\"Hello\", \"Hello\")");
 	s = "Hello";
 	s2 = "Hello";
@@ -35,6 +61,5 @@ void	test_strcmp(void)
 	errno = 0;
 	printf("orig : %d", strcmp(s, s2));
 	printf("\terrno = %d\n", errno);
-	
 	printf("\n");
 }

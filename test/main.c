@@ -6,7 +6,7 @@
 /*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 20:42:33 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/05/01 00:49:19 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/05/01 01:12:30 by lle-briq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	printst(char *str)
 	printf("\n%s> %s%s\n", cyan, str, white);
 }
 
-int	main(void)
+int		main(void)
 {
 	test_strlen();
 	test_strcmp();
@@ -45,6 +45,5 @@ int	main(void)
 	test_read();
 	test_strdup();
 	test_list_size();
-	//test_list_remove_if();
 	return (0);
 }
