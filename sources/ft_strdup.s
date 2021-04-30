@@ -1,6 +1,6 @@
 global ft_strdup
 extern malloc
-extern __errno_location
+;extern __errno_location
 extern ft_strlen
 extern ft_strcpy
 
@@ -17,7 +17,7 @@ ft_strdup:
 	js		error_dup
 	mov		rdi, rax			; rdi = dest
 	mov		rsi, rbx
-	call	ft_strcpy
+	call	ft_strcpy wrt ..plt
 	pop		rsi
 	pop		rdi
 	pop		rbx
