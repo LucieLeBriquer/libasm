@@ -1,5 +1,5 @@
 *.o
-tests
+run
 libasm.a
 *.swp
 *.gch

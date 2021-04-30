@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_strcpy.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/01 00:56:46 by lle-briq          #+#    #+#             */
+/*   Updated: 2021/05/01 00:57:20 by lle-briq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "tester.h"
 
 void	test_strcpy(void)
@@ -7,20 +19,22 @@ void	test_strcpy(void)
 	char *src;
 
 	printt("STRCPY");
+	printst("strcpy(\"Hello world!\", dest)");
 	src = "Hello world!";
 	errno = 0;
-	printf("orig : src[%s], dest[%s]", src, strcpy(dest, src));
+	printf("mine : dest[%s]", ft_strcpy(dest2, src));
 	printf("\terrno = %d\n", errno);
 	errno = 0;
-	printf("mine : src[%s], dest[%s]", src, ft_strcpy(dest2, src));
+	printf("orig : dest[%s]", strcpy(dest, src));
 	printf("\terrno = %d\n", errno);
 
 	src = "";
+	printst("strcpy(\"\", dest)");
 	errno = 0;
-	printf("orig : src[%s], dest[%s]", src, strcpy(dest, src));
+	printf("mine : dest[%s]", ft_strcpy(dest2, src));
 	printf("\t\t\t\terrno = %d\n", errno);
 	errno = 0;
-	printf("mine : src[%s], dest[%s]", src, ft_strcpy(dest2, src));
+	printf("orig : dest[%s]", strcpy(dest, src));
 	printf("\t\t\t\terrno = %d\n", errno);
 	printf("\n");
 }

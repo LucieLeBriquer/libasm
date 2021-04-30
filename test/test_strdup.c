@@ -6,11 +6,13 @@ void	test_strdup(void)
 	char	*str2;
 
 	printt("STRDUP");
-	str1 = strdup("Hello");
-	printf("orig : %s\n", str1);
+	printst("strdup(\"Hello\")");
 	str2 = ft_strdup("Hello");
 	printf("mine : %s\n", str2);
+	str1 = strdup("Hello");
+	printf("orig : %s\n", str1);
 	free(str1);
 	free(str2);
+	printst("free.... ok");
 	printf("\n");
 }

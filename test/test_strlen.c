@@ -5,6 +5,7 @@ void	test_strlen(void)
 	char *s;
 
 	printt("STRLEN");
+	printst("strlen(\"Lucie\")");
 	s = "Lucie";
 	errno = 0;
 	printf("mine : [%s]\tret = %ld", s, ft_strlen(s));
@@ -13,6 +14,7 @@ void	test_strlen(void)
 	printf("orig : [%s]\tret = %ld", s, strlen(s));
 	printf("\terrno = %d\n", errno);
 
+	printst("strlen(\"\")");
 	s = "";
 	errno = 0;
 	printf("mine : [%s]\t\tret = %ld", s, ft_strlen(s));
