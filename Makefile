@@ -18,9 +18,7 @@ SRCS		= $(addprefix sources/,\
 BONUS		= $(addprefix sources/,\
 			ft_list_size_bonus.s\
 			ft_list_push_front_bonus.s\
-			ft_list_sort_bonus.s\
-			ft_list_remove_if_bonus.s\
-			ft_atoi_base_bonus.s)
+			ft_list_remove_if_bonus.s)
 
 TEST		= $(addprefix test/,\
 			test_lst.c\
@@ -37,16 +35,20 @@ TEST_OBJS	= $(TEST:.c=.o)
 
 %.o			: %.s
 			@$(NASM) $(NFLAGS) -I$(INCS_DIR) $< -o $@
+			@echo "$(NAME_SHORT)compiling $*.s"
 
 %.o			: %.c
 			@$(CC) -I$(INCS_DIR) -c $< -o $@
 
 all			: $(LIB)
 
-$(LIB)		: $(OBJS) $(BONUS_OBJS)
-			@ar rcs $(LIB) $(OBJS) $(BONUS_OBJS)
+$(LIB)		: $(OBJS)
+			@ar rcs $(LIB) $(OBJS)
 
-test		: $(TEST_FILE) $(LIB) $(TEST_OBJS)
+bonus		: $(OBJS) $(BONUS_OBJS)
+			@ar rcs $(LIB) $(OBJS) $(BONUS_OBJS)	
+
+test		: $(TEST_FILE) bonus $(TEST_OBJS)
 			@$(CC) $(TEST_FILE) $(TEST_OBJS) $(LIB) -I$(INCS_DIR) -o $(TEST_OUT)
 
 clean:
