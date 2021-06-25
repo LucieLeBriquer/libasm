@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_lst.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucie <lucie@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 00:59:54 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/05/01 01:13:50 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/06/25 17:15:47 by lucie            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	test_list_size(void)
 	free_lst(begin);
 }
 
-int		cmp(char *str1, char *str2)
+int	cmp(char *str1, char *str2)
 {
 	if (str1[0] >= str2[0])
 		return (1);

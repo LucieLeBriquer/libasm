@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_write.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucie <lucie@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 01:07:29 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/05/01 01:14:53 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/06/25 17:17:03 by lucie            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void	test_write2(void)
 	printf("\n");
 }
 
-void		test_write(void)
+void	test_write(void)
 {
 	printt("WRITE ");
 	test_write1();

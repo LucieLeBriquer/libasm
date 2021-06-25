@@ -3,9 +3,9 @@
 # include "libasm.h"
 # include <errno.h>
 # include <stdlib.h>
-# define cyan "\033[36m"
-# define cyanB "\033[1;36m"
-# define white "\033[0m"
+# define CYAN "\033[36m"
+# define CYANB "\033[1;36m"
+# define WHITE "\033[0m"
 
 void	test_strlen(void);
 void	test_strcmp(void);

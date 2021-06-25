@@ -16,7 +16,7 @@ loop:
 
 exit:
 	mov		byte [rdi + rcx], 0		; dest[i] = '\0'
-	mov		rax, rdi			; strcpy return dest
+	mov		rax, rdi				; strcpy return dest
 	pop		rdx
 	pop		rcx
 	ret

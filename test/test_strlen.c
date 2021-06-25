@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_strlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucie <lucie@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 01:05:03 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/05/01 01:12:49 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/06/25 17:16:55 by lucie            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	test_strlen(void)
 {
-	char *s;
+	char	*s;
 
 	printt("STRLEN");
 	printst("strlen(\"Lucie\")");

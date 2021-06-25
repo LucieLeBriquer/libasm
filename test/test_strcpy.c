@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_strcpy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucie <lucie@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 00:56:46 by lle-briq          #+#    #+#             */
-/*   Updated: 2021/05/01 01:14:59 by lle-briq         ###   ########.fr       */
+/*   Updated: 2021/06/25 17:16:48 by lucie            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	test_strcpy(void)
 {
-	char dest[20];
-	char dest2[20];
-	char *src;
+	char	dest[20];
+	char	dest2[20];
+	char	*src;
 
 	printt("STRCPY");
 	printst("strcpy(\"Hello world!\", dest)");
